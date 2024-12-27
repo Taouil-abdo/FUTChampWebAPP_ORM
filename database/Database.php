@@ -50,7 +50,7 @@ class Database {
   }
 
   public static function update($table,$columns, $id){
-    // $columns = rtrim($columns, ',');
+    $columns = rtrim($columns, ',');
     $query = "UPDATE $table SET $columns WHERE id=$id";
     $result = self::conection()->query($query);
     return $result;

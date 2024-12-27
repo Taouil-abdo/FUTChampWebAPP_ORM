@@ -4,39 +4,50 @@ include_once __DIR__ . '/../functions/CrudFunctions.php';
 
 class Player {
 
-    public static function showAllPlayers() {
+    public static function showAllPlayers($tableName) {
 
-        $re = CrudFunctions::show('Players');
-        print_r($re);
+        $re = CrudFunctions::show($tableName);
+        return $re;
+        
     }
 
-    public static function deletePlayer(){
-         $re = CrudFunctions::deleteById('Players',4);
-         print_r($re);
+    public static function deletePlayer($tableName,$id){
+         $re = CrudFunctions::deleteById($tableName,$id);
+         return $re;
 
      }
 
-    public static function updatePlayer($fullName,$status,$position,$player_img,$rating,$pace,$shooting,$passing,$dribbling,$defending,$physical,$nationality_id,$club_id,$id){
+    public static function updatePlayer($tableName,$fullName,$status,$position,$player_img,$rating,$pace,$shooting,$passing,$dribbling,$defending,$physical,$nationality_id,$club_id,$id){
 
         $columns = "fullName='$fullName', status='$status', position='$position', player_img='$player_img', rating=$rating, pace=$pace, shooting=$shooting, passing=$passing, dribbling=$dribbling, defending=$defending, physical=$physical, nationality_id=$nationality_id, club_id=$club_id";
-        $re = CrudFunctions::update('Players',$columns,$id);
-            print_r($re);
+        $re = CrudFunctions::update($tableName,$columns,$id);
+        return $re;
+
         }
 
-    public static function creatPlayer(){ 
+    public static function creatPlayer($tableName,$fullName,$status,$position,$player_img,$rating,$pace,$shooting,$passing,$dribbling,$defending,$physical,$nationality_id,$club_id,$id){ 
 
-           $re = CrudFunctions::insert('Players','fullName, status, position,player_img, rating, pace, shooting, passing, dribbling, defending, physical, nationality_id, club_id','"Neymar taouil", "principale", "neymar.png", "LW", 91, 91, 85, 90, 94, 37, 64,4, 2');
-           print_r($re);
+           $re = CrudFunctions::insert($tableName,'fullName, status, position,player_img, rating, pace, shooting, passing, dribbling, defending, physical, nationality_id, club_id','"Neymar taouil", "principale", "neymar.png", "LW", 91, 91, 85, 90, 94, 37, 64,4, 2');
+           return $re;
+        
         }
 
 }
 
 
-$r = Player::showAllPlayers();
+$re = Player::showAllPlayers('Players');
+var_dump($re);   
 
-// $r = Player::deletePlayer();
-$r = Player::updatePlayer("l3foo","principale","GK","neymar.png", 91, 91, 85, 90, 94, 37, 64, 4, 2, 5);
+// $r = Player::deletePlayer('Players',7);
 
-// var_dump($r);   
+$res = Player::updatePlayer('Players',"llllll","principale","LWB","neymar.png", 91,91, 85, 90, 94, 37, 64, 4, 2,8);
+
+echo "<pre>";
+
+var_dump($re);   
+
+echo "</pre>";
+
+var_dump($res);
 
 ?>

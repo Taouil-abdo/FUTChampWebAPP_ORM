@@ -46,25 +46,25 @@ class CrudFunctions {
 }
 
 
-$re = CrudFunctions::Show('clubs');
+// $re = CrudFunctions::Show('clubs');
 
-var_dump($re);
+// var_dump($re);
 
-foreach($re as $r){
-    echo $r['fullName'];
-    echo $r['status'];
-    echo $r['position'];
-    echo $r['player_img'];
-    echo $r['rating'];
-    echo $r['pace'];
-    echo $r['shooting'];
-    echo $r['passing'];
-    echo $r['dribbling'];
-    echo $r['defending'];
-    echo $r['physical'];
+// foreach($re as $r){
+//     echo $r['fullName'];
+//     echo $r['status'];
+//     echo $r['position'];
+//     echo $r['player_img'];
+//     echo $r['rating'];
+//     echo $r['pace'];
+//     echo $r['shooting'];
+//     echo $r['passing'];
+//     echo $r['dribbling'];
+//     echo $r['defending'];
+//     echo $r['physical'];
 
-    echo "<br>";
-}
+//     echo "<br>";
+// }
 
 
 
